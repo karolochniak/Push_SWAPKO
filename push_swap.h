@@ -6,7 +6,7 @@
 /*   By: kochniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 20:31:18 by kochniak          #+#    #+#             */
-/*   Updated: 2025/12/12 20:45:38 by kochniak         ###   ########.fr       */
+/*   Updated: 2025/12/19 14:32:45 by kochniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,27 +18,30 @@
 #include "printf/ft_printf.h"
 #include "libftKO/libft.h"
 
-typedef struct s_stack_node
+typedef struct s_list
 {
-	int     nbr;
-    int     index;
-    int     push_cost;
-    bool    above_median;
-    bool    cheapest;
-    struct S_stack_node *target_node;
-    struct s_stack_node *next;
-    struct s_stack_node *prev;
-}   t_stack_node;
+    int             value;     // Wartość liczbowa
+    int             index;     // Zindeksowana wartość (ułatwia algorytmy typu Radix/K-sort)
+    struct s_list   *next;     // Następny element
+    struct s_list   *prev;     // Poprzedni element
+} t_list;
 
-//Handle errors
+// Funkcje operacji stosu
+void    sa(t_list *a, int print);
+void    sb(t_list *b, int print);
+void    ss(t_list *a, t_list *b);
+void    pa(t_list **a, t_list **b);
+void    pb(t_list **a, t_list **b);
+void    ra(t_list **a, int print);
+void    rb(t_list **b, int print);
+void    rr(t_list **a, t_list **b);
+void    rra(t_list **a, int print);
+void    rrb(t_list **b, int print);
+void    rrr(t_list **a, t_list **b);
 
-//Stack initiation
+// Funkcje pomocznicze
+long	ft_atoi_safe(const char *str, int *error);
 
-//Nodes initiation
-
-//Commands
-
-//Algorithms
 
 
 

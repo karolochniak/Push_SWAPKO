@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push_swap_rrr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kochniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/12 20:46:22 by kochniak          #+#    #+#             */
-/*   Updated: 2025/12/19 14:33:24 by kochniak         ###   ########.fr       */
+/*   Created: 2025/12/19 12:59:54 by kochniak          #+#    #+#             */
+/*   Updated: 2025/12/19 14:22:43 by kochniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+#include "../libftKO/libft.h"
+#include "../printf/ft_printf.h"
 
-static int	check_dupli(t_list *a)
+void    rrr(t_list **a, t_list **b)
 {
-	t_list *tmp;
+	rra(a, 0);
+	rrb(b, 0);
+	ft_printf("rrr\n");
+}
 
-	while (a)
-	{
-		tmp = a->next;
-		while (tmp)
-		{
-			if (a->value == tmp->value)
-				return (1);
-			tmp = tmp->next;
-		}
-		a = a->next;
-	}
-	return (0);
-}
-int main(int argc, char **argv)
-{
-   
-}
+
