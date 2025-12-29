@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libftKO/libft.h"
-#include "../printf/ft_printf.h"
 
 void	sa(t_list *a, int print)
 {

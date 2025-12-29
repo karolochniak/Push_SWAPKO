@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "../libftKO/libft.h"
-#include "../printf/ft_printf.h"
 
 void    rrr(t_list **a, t_list **b)
 {

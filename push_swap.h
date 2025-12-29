@@ -16,7 +16,7 @@
 #include <stdbool.h>
 #include <limits.h>
 #include "printf/ft_printf.h"
-#include "libftKO/libft.h"
+
 
 typedef struct s_list
 {
@@ -41,6 +41,11 @@ void    rrr(t_list **a, t_list **b);
 
 // Funkcje pomocznicze
 long	ft_atoi_safe(const char *str, int *error);
+/* adapted list helpers (ps_list.c) */
+t_list  *ps_lstnew(int value);
+void    ps_lstadd_back(t_list **lst, t_list *node);
+t_list  *ps_lstlast(t_list *lst);
+int     ps_lstsize(t_list *lst);
 
 
 
