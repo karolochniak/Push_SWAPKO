@@ -46,6 +46,12 @@ t_list  *ps_lstnew(int value);
 void    ps_lstadd_back(t_list **lst, t_list *node);
 t_list  *ps_lstlast(t_list *lst);
 int     ps_lstsize(t_list *lst);
+/* sort helpers */
+void    sort_three(t_list **a);
+/* compatibility wrappers for libft-style names used in rotation code */
+t_list  *ft_lstlast(t_list *lst);
+int	    check_dupli(t_list *a);
+int	is_sorted(t_list *a);
 
 
 

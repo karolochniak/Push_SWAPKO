@@ -14,6 +14,36 @@
 #include <stdlib.h>
 #include <string.h>
 
+int	check_dupli(t_list *a)
+{
+	t_list *tmp;
+
+	while (a)
+	{
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->value == tmp->value)
+				return (1);
+			tmp = tmp->next;
+		}
+		a = a->next;
+	}
+	return (0);
+}
+
+
+int is_sorted(t_list *a)
+{
+	while (a && a->next)
+	{
+		if (a->value > a->next->value)
+			return (0);
+		a = a->next;
+	}
+	return (1);
+}
+
 int main(int argc, char **argv)
 {
 	t_list  *a;
@@ -70,6 +100,12 @@ int main(int argc, char **argv)
 	}
 	if (is_sorted(a))
 		return (0);
+	/* if small, call small sorter */
+	if (ps_lstsize(a) <= 3)
+	{
+		sort_three(&a);
+		return (0);
+	}
 	/* TODO: call sorting algorithm here */
 	return (0);
 }

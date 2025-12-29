@@ -36,6 +36,12 @@ t_list  *ps_lstlast(t_list *lst)
     return (lst);
 }
 
+/* compatibility wrapper expected by rotation code */
+t_list  *ft_lstlast(t_list *lst)
+{
+    return (ps_lstlast(lst));
+}
+
 void    ps_lstadd_back(t_list **lst, t_list *node)
 {
     t_list *last;
