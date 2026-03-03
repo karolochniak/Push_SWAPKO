@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_sorting.c                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kochniak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/03 00:00:00 by kochniak          #+#    #+#             */
+/*   Updated: 2026/03/03 00:00:00 by kochniak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	assign_indexes(t_list *a)
@@ -80,7 +92,6 @@ void	sort_three(t_list **a)
 void	radix_sort(t_list **a, t_list **b)
 {
 	int	max_bits;
-	int	max_index;
 	int	size;
 	int	bit;
 	int	i;
@@ -88,24 +99,21 @@ void	radix_sort(t_list **a, t_list **b)
 	if (!a || !*a || is_sorted(*a))
 		return ;
 	size = ps_lstsize(*a);
-	max_index = get_max_index(*a);
 	max_bits = 0;
-	while ((max_index >> max_bits) != 0)
+	while ((get_max_index(*a) >> max_bits) != 0)
 		max_bits++;
-	bit = 0;
-	while (bit < max_bits)
+	bit = -1;
+	while (++bit < max_bits)
 	{
-		i = 0;
-		while (i < size)
+		i = -1;
+		while (++i < size)
 		{
 			if ((((*a)->index >> bit) & 1) == 1)
 				ra(a, 1);
 			else
 				pb(b, a);
-			i++;
 		}
 		while (*b)
 			pa(b, a);
-		bit++;
 	}
 }

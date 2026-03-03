@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kochniak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/03 00:00:00 by kochniak          #+#    #+#             */
+/*   Updated: 2026/03/03 00:00:00 by kochniak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdlib.h>
 
@@ -33,4 +45,15 @@ void	free_stack(t_list **stack)
 		free(*stack);
 		*stack = next;
 	}
+}
+
+int	is_sorted(t_list *a)
+{
+	while (a && a->next)
+	{
+		if (a->value > a->next->value)
+			return (0);
+		a = a->next;
+	}
+	return (1);
 }

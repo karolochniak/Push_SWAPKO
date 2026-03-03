@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap_parse.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kochniak <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/03 00:00:00 by kochniak          #+#    #+#             */
+/*   Updated: 2026/03/03 00:00:00 by kochniak         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 #include <stdlib.h>
 
@@ -23,13 +35,29 @@ static int	append_value(t_list **a, const char *str)
 	return (0);
 }
 
+static int	append_token(const char *arg, int i, int j, t_list **a)
+{
+	char	*token;
+	int		k;
+
+	token = (char *)malloc((j - i + 1) * sizeof(char));
+	if (!token)
+		return (1);
+	k = 0;
+	while (i < j)
+		token[k++] = arg[i++];
+	token[k] = '\0';
+	if (append_value(a, token) != 0)
+		return (free(token), 1);
+	free(token);
+	return (0);
+}
+
 static int	parse_single_arg(const char *arg, t_list **a)
 {
-	int		i;
-	int		j;
-	int		k;
-	char	*token;
-	int		parsed;
+	int	i;
+	int	j;
+	int	parsed;
 
 	i = 0;
 	parsed = 0;
@@ -42,30 +70,17 @@ static int	parse_single_arg(const char *arg, t_list **a)
 		j = i;
 		while (arg[j] && !is_space(arg[j]))
 			j++;
-		token = (char *)malloc((j - i + 1) * sizeof(char));
-		if (!token)
+		if (append_token(arg, i, j, a) != 0)
 			return (1);
-		k = 0;
-		while (i < j)
-		{
-			token[k] = arg[i];
-			i++;
-			k++;
-		}
-		token[k] = '\0';
-		if (append_value(a, token) != 0)
-			return (free(token), 1);
-		free(token);
+		i = j;
 		parsed = 1;
 	}
-	if (parsed == 0)
-		return (1);
-	return (0);
+	return (parsed == 0);
 }
 
 int	parse_args_to_stack(int argc, char **argv, t_list **a)
 {
-	int		i;
+	int	i;
 
 	if (!a)
 		return (1);

@@ -13,6 +13,19 @@
 #include "push_swap.h"
 #include <unistd.h>
 
+static void	choose_sort(t_list **a, t_list **b)
+{
+	int	size;
+
+	size = ps_lstsize(*a);
+	if (size == 2)
+		sort_two(a);
+	else if (size == 3)
+		sort_three(a);
+	else
+		radix_sort(a, b);
+}
+
 static int	print_error_and_free(t_list **a, t_list **b)
 {
 	write(2, "Error\n", 6);
@@ -25,7 +38,6 @@ int	main(int argc, char **argv)
 {
 	t_list	*a;
 	t_list	*b;
-	int		size;
 
 	a = NULL;
 	b = NULL;
@@ -41,13 +53,7 @@ int	main(int argc, char **argv)
 		return (0);
 	}
 	assign_indexes(a);
-	size = ps_lstsize(a);
-	if (size == 2)
-		sort_two(&a);
-	else if (size == 3)
-		sort_three(&a);
-	else
-		radix_sort(&a, &b);
+	choose_sort(&a, &b);
 	free_stack(&a);
 	free_stack(&b);
 	return (0);

@@ -6,17 +6,15 @@
 /*   By: kochniak <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/19 12:59:54 by kochniak          #+#    #+#             */
-/*   Updated: 2025/12/19 14:22:43 by kochniak         ###   ########.fr       */
+/*   Updated: 2026/03/03 00:00:00 by kochniak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    rrr(t_list **a, t_list **b)
+void	rrr(t_list **a, t_list **b)
 {
 	rra(a, 0);
 	rrb(b, 0);
 	ft_printf("rrr\n");
 }
-
-
