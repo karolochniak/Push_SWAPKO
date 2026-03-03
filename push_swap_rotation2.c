@@ -76,7 +76,7 @@ void	rrb(t_list **b, int print)
 	(*b)->prev = last;
 	*b = last;
 	if(print == 1)
-		ft_printf("rra\n");
+		ft_printf("rrb\n");
 }
 void    rr(t_list **a, t_list **b)
 {

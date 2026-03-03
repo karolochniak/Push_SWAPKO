@@ -13,25 +13,22 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-#include <stdbool.h>
-#include <limits.h>
-#include "printf/ft_printf.h"
+# include "printf/ft_printf.h"
 
 
 typedef struct s_list
 {
-    int             value;     // Wartość liczbowa
-    int             index;     // Zindeksowana wartość (ułatwia algorytmy typu Radix/K-sort)
-    struct s_list   *next;     // Następny element
-    struct s_list   *prev;     // Poprzedni element
+    int             value;
+    int             index;
+    struct s_list   *next;
+    struct s_list   *prev;
 } t_list;
 
-// Funkcje operacji stosu
 void    sa(t_list *a, int print);
 void    sb(t_list *b, int print);
 void    ss(t_list *a, t_list *b);
-void    pa(t_list **a, t_list **b);
-void    pb(t_list **a, t_list **b);
+void    pa(t_list **b, t_list **a);
+void    pb(t_list **b, t_list **a);
 void    ra(t_list **a, int print);
 void    rb(t_list **b, int print);
 void    rr(t_list **a, t_list **b);
@@ -39,21 +36,25 @@ void    rra(t_list **a, int print);
 void    rrb(t_list **b, int print);
 void    rrr(t_list **a, t_list **b);
 
-// Funkcje pomocznicze
 long	ft_atoi_safe(const char *str, int *error);
-/* adapted list helpers (ps_list.c) */
 t_list  *ps_lstnew(int value);
 void    ps_lstadd_back(t_list **lst, t_list *node);
 t_list  *ps_lstlast(t_list *lst);
 int     ps_lstsize(t_list *lst);
-/* sort helpers */
-void    sort_three(t_list **a);
-/* compatibility wrappers for libft-style names used in rotation code */
 t_list  *ft_lstlast(t_list *lst);
-int	    check_dupli(t_list *a);
-int	is_sorted(t_list *a);
+int     is_sorted(t_list *a);
 
+int     check_dupli(t_list *a);
+void    free_stack(t_list **stack);
 
+int     parse_args_to_stack(int argc, char **argv, t_list **a);
 
+int     assign_indexes(t_list *a);
+int     get_max_index(t_list *a);
+
+void    sort_two(t_list **a);
+void    sort_three(t_list **a);
+
+void    radix_sort(t_list **a, t_list **b);
 
 #endif
