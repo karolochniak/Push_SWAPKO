@@ -1,28 +1,69 @@
-# Push_SWAPKO
+*This project has been created as part of the 42 curriculum by kochniak.*
 
-A highly optimized data sorting algorithm implemented in C. This project uses two stacks (`A` and `B`) and a limited set of operations to sort a given array of integers in ascending order with the minimum possible number of moves.
+# push_swap
 
----
+## Description
 
-## 🚀 About the Project
+`push_swap` is a 42 sorting project. The objective is to sort a list of integers using two stacks and a restricted set of operations, while producing as few moves as possible.
 
-The `push_swap` program takes a list of integers as arguments, initializes stack `A` with them, and outputs a sequence of operations (e.g., `sa`, `pb`, `ra`) to standard output that sorts the data. 
+This implementation:
 
-Depending on the input size, the program dynamically selects the most efficient sorting strategy:
-- **2 elements:** Handled by `sort_two`.
-- **3 elements:** Handled by an optimized `sort_three` algorithm.
-- **Larger datasets:** Handled by a custom `radix_sort` utilizing pre-assigned indexes.
+- parses and validates the input
+- rejects duplicates and invalid integers
+- assigns rank indexes before sorting
+- uses dedicated logic for small inputs
+- uses radix sort for larger inputs
 
----
+Stacks are implemented as doubly linked lists.
 
-## 🧩 Data Structure
+## Instructions
 
-The stacks are implemented using a doubly linked list to ensure efficient node manipulation:
-```c
-typedef struct s_list
-{
-    int             value;
-    int             index;
-    struct s_list   *next;
-    struct s_list   *prev;
-} t_list;
+### Compilation
+
+```bash
+make
+```
+
+This builds the `push_swap` executable in the project root.
+
+### Cleaning
+
+```bash
+make clean
+```
+
+```bash
+make fclean
+```
+
+```bash
+make re
+```
+
+### Execution
+
+```bash
+./push_swap 3 2 1
+```
+
+```bash
+./push_swap "3 2 1"
+```
+
+### Checker
+
+```bash
+./push_swap 3 2 1 | ./checker_linux 3 2 1
+```
+
+## Resources
+
+- 42 subject: push_swap
+- GNU C Library documentation
+- `man 3 malloc`
+- `man 3 free`
+- `man 3 write`
+- binary radix sort references
+- doubly linked list references
+
+AI was used to draft and format this README, to condense the project description, and to organize the required sections. The code, build process, and runtime behaviour were verified locally in the workspace.
