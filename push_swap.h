@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "printf/ft_printf.h"
+# include "printf/printfKO/ft_printf.h"
 
 typedef struct s_list
 {
@@ -53,6 +53,7 @@ int		get_max_index(t_list *a);
 
 void	sort_two(t_list **a);
 void	sort_three(t_list **a);
+void	sort_small(t_list **a, t_list **b);
 
 void	radix_sort(t_list **a, t_list **b);
 

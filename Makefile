@@ -4,7 +4,7 @@ CC			=	cc
 CFLAGS		=	-Wall -Wextra -Werror
 RM			=	rm -f
 
-PRINTF_DIR	=	printf
+PRINTF_DIR	=	printf/printfKO
 PRINTF_LIB	=	$(PRINTF_DIR)/libftprintf.a
 
 SRC			=	main.c \
@@ -15,7 +15,8 @@ SRC			=	main.c \
 				push_swap_rrr.c \
 				push_swap_parse.c \
 				push_swap_utils.c \
-				push_swap_sorting.c
+				push_swap_sorting.c \
+				push_swap_small.c
 
 OBJ			=	$(SRC:.c=.o)
 

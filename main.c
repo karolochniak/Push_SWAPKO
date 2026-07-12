@@ -22,6 +22,8 @@ static void	choose_sort(t_list **a, t_list **b)
 		sort_two(a);
 	else if (size == 3)
 		sort_three(a);
+	else if (size <= 5)
+		sort_small(a, b);
 	else
 		radix_sort(a, b);
 }
